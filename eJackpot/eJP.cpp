@@ -4,7 +4,7 @@
 void izvlacenje(std::vector<int>& c) {
 	std::vector<int>::const_iterator it;
 	for (int i = 0; i < 7; ++i) {
-		if (i < 5) { //prvih 5 brojeva
+		if (i < 5) { //first 5 num
 			int b = rand() % 50 + 1;
 			//ne unos duplih
 			it = find(c.begin(), c.end(), b);
@@ -13,7 +13,7 @@ void izvlacenje(std::vector<int>& c) {
 			else
 				--i;
 		}
-		else { //zadnja 2 broja
+		else { //last 2 num
 			int b = rand() % 10 + 1;
 			it = find(c.begin() + 5, c.end(), b);
 			if (it == c.end())
@@ -23,6 +23,7 @@ void izvlacenje(std::vector<int>& c) {
 		}
 	}
 }
+//auto gen tickets
 void genList(std::vector<std::vector<int>>& z, int n) {
 	while (n) {
 		std::vector<int> c;
@@ -33,6 +34,7 @@ void genList(std::vector<std::vector<int>>& z, int n) {
 		--n;
 	}
 }
+//manually enter numbers
 void unosList(std::vector<std::vector<int>>& z, int n) {
 	while (n) {
 		std::vector<int> c;
@@ -53,7 +55,7 @@ void unosList(std::vector<std::vector<int>>& z, int n) {
 	}
 }
 
-// funkcija za provjeru listica
+// result check
 rez cmpV(const std::vector<int>& a, std::vector<int>& c) {
 	rez r;
 	sort(c.begin(), c.end() - 2);
@@ -66,7 +68,7 @@ rez cmpV(const std::vector<int>& a, std::vector<int>& c) {
 	}
 	return r;
 }
-//unos dobitaka u mapu
+//saving current winnings
 void dobitak(const rez& r, std::map<std::string, int>& m) {
 	if (r.a == 2 && r.b == 1) m["2+1"]++;//2+1
 	else if (r.a == 1 && r.b == 2) m["1+2"]++;//1+2
