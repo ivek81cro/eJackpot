@@ -38,13 +38,13 @@ void genList(std::vector<std::vector<int>>& z, int n) {
 void unosList(std::vector<std::vector<int>>& z, int n) {
 	while (n) {
 		std::vector<int> c;
-		std::cout << "Listic " << n << std::endl;
+		std::cout << "Ticket " << n << std::endl;
 		for (int i = 0; i < 7; ++i) {
 			int a;
 			if (i < 5)
-				std::cout << "Unesite broj 1-50:";
+				std::cout << "Enter one number 1-50:";
 			if (i >= 5)
-				std::cout << "Unesite broj 1-10:";
+				std::cout << "Enter one number 1-10:";
 			std::cin >> a;
 			c.push_back(a);
 		}
