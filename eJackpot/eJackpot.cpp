@@ -2,8 +2,7 @@
 #include<ctime>
 #include<iterator>
 
-/*simulacija izvlacenja 5+2 brojeva i usporedba sa dvije odabrane kombinacije
-za n izvlacenja*/
+/*simple lottery sim*/
 using namespace std;
 
 int main() {
@@ -12,12 +11,12 @@ int main() {
 	map<string,int> m;
 	int n, list, kolo=1, stanje;
 	char gen;
-	cout << "Koliko listica zelite igrati?"; cin >> list;
+	cout << "How many combinations(tickets) you want to play?"; cin >> list;
 	vector<vector<int>> z;
-	cout << "Koliko kola zelite igrati?"; cin >> n;
-	cout << "Zelite li nasumicno generirane brojeve na listice? (y/n)"; cin >> gen;
+	cout << "How many rounds?"; cin >> n;
+	cout << "Auto generate combinations? (y/n)"; cin >> gen;
 	gen == 'y' ? genList(z, list) : unosList(z, list);
-	cout << "Vasi odigrani listici:" << endl;
+	cout << "Your played tickets:" << endl;
 	int x = list;
 	while (x) {
 		ostream_iterator<int> os(cout, " ");
@@ -25,11 +24,11 @@ int main() {
 		cout << endl;
 		--x;
 	}
-	cout << "Molim platite " << n * list * 15 << ",00 kn" << endl;
+	cout << "Please pay " << n * list * 15 << ",00 kn" << endl;
 	cin >> stanje;
-	cout << ">>>>>>>>>>IZVLACENJE<<<<<<<<<<<<<" << endl;
+	cout << ">>>>>>>>>>ROLLING<<<<<<<<<<<<<" << endl;
 	while (kolo<=n) {
-		cout << "Kolo: " << kolo << "-> ";
+		cout << "Round: " << kolo << "-> ";
 		//popuna vektora c(izvlacenje brojeva)
 		izvlacenje(c);
 
@@ -50,6 +49,6 @@ int main() {
 		c.clear();
 		++kolo;
 	}
-	cout << "\nSvi dobici:" << endl;
+	cout << "\nTotal winnings:" << endl;
 	ispis_mape(m);
 }
