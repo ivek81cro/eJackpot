@@ -84,6 +84,7 @@ void dobitak(const rez& r, std::map<std::string, int>& m) {
 	else if (r.a == 5 && r.b == 2) m["5+2"]++;//5+2
 }
 void ispis_mape(const std::map<std::string,int> m) {
+	if (!m.size()) { std::cout << "Better luck next time"; }
 	for (auto it = m.begin(); it != m.end(); ++it)
 		std::cout << it->first << ':' << it->second << std::endl;
 }
