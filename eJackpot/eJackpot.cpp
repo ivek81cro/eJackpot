@@ -6,19 +6,19 @@
 using namespace std;
 
 int main() {
-	//varijable
+	//variables
 	srand(static_cast<uint32_t>((time(0))));
 	vector<int> c;
 	vector<vector<int>> z;
 	map<string,int> m;
-	int n, list, kolo = 1, stanje = 0;
+	int n, list, round = 1, balance = 0;
 	char gen;	
-	//upiti
+	//choices
 	cout << "How many combinations(tickets) you want to play?"; cin >> list;	
 	cout << "How many rounds?"; cin >> n;
 	cout << "Auto generate combinations? (y/n)"; cin >> gen;
-	gen == 'y' ? genList(z, list) : unosList(z, list);
-	//ispis odigranih kombinacija
+	gen == 'y' ? genList(z, list) : manualList(z, list);
+	//writeout played tickets
 	cout << "Your played tickets:" << endl;
 	int x = list;
 	while (x) {
@@ -27,37 +27,37 @@ int main() {
 		cout << endl;
 		--x;
 	}
-	//cijena odabranih kombinacija
+	//price of played tickets
 	cout << "Please pay " << n * list * 15 << ",00 kn" << endl;	
-	cin >> stanje; 
-	if(stanje< n * list * 15){ cout << "Not enough monney!" << endl; }
-	//ako je sve ok
+	cin >> balance; 
+	if(balance< n * list * 15){ cout << "Not enough monney!" << endl; }
+	//if balance enough
 	else {
 		cout << ">>>>>>>>>>ROLLING<<<<<<<<<<<<<" << endl;
-		while (kolo <= n) {
-			cout << "Round: " << kolo << "-> ";
-			//popuna vektora c(izvlacenje brojeva)
-			izvlacenje(c);
+		while (round <= n) {
+			cout << "Round: " << round << "-> ";
+			//populate vector c(draw)
+			draw(c);
 
-			//ispis izvucenih brojeva
+			//draw result writeout
 			ostream_iterator<int> os(cout, " ");
 			copy(c.begin(), c.end(), os);
 			cout << "-->";
 
-			//provjera dobitaka
+			//check winnings
 			x = list;
 			while (x) {
 				rez r(cmpV(z[x - 1], c));
-				dobitak(r, m);
+				winning(r, m);
 				--x;
 			}
-			//priprema za novo kolo
+			//preparation for new roud
 			cout << endl;
 			c.clear();
-			++kolo;
+			++round;
 		}
 	}
-	//napraviti i novcanu vrijednost dobitaka i usporedbu ulog-gubitak
+	//make total winnings value and compare won->invested
 	cout << "\nTotal winnings:" << endl;
-	ispis_mape(m);
+	total_winnings(m);
 }
