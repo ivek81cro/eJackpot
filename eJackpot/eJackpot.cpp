@@ -1,7 +1,7 @@
 #include"eJP.h"
 #include<ctime>
 #include<iterator>
-
+#include "Handler.h"
 /*simple lottery sim*/
 using namespace std;
 
@@ -59,5 +59,5 @@ int main() {
 	}
 	//make total winnings value and compare won->invested
 	cout << "\nTotal winnings:" << endl;
-	total_winnings(m);
+	ispis_mape(m);
 }
