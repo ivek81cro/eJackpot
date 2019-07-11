@@ -59,5 +59,5 @@ int main() {
 	}
 	//make total winnings value and compare won->invested
 	cout << "\nTotal winnings:" << endl;
-	ispis_mape(m);
+	total_winnings(m);
 }
