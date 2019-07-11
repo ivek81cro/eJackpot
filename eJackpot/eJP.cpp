@@ -2,12 +2,11 @@
 
 
 void izvlacenje(std::vector<int>& c) {
-	std::vector<int>::const_iterator it;
 	for (int i = 0; i < 7; ++i) {
 		if (i < 5) { //first 5 num
 			int b = rand() % 50 + 1;
 			//ne unos duplih
-			it = find(c.begin(), c.end(), b);
+			auto it = find(c.begin(), c.end(), b);
 			if (it == c.end())
 				c.push_back(b);
 			else
@@ -15,7 +14,7 @@ void izvlacenje(std::vector<int>& c) {
 		}
 		else { //last 2 num
 			int b = rand() % 10 + 1;
-			it = find(c.begin() + 5, c.end(), b);
+			auto it = find(c.begin() + 5, c.end(), b);
 			if (it == c.end())
 				c.push_back(b);
 			else
@@ -85,6 +84,7 @@ void dobitak(const rez& r, std::map<std::string, int>& m) {
 }
 void ispis_mape(const std::map<std::string,int> m) {
 	if (!m.size()) { std::cout << "Better luck next time"; }
-	for (auto it = m.begin(); it != m.end(); ++it)
-		std::cout << it->first << ':' << it->second << std::endl;
+	for (auto i : m){
+		std::cout << i.first << ':' << i.second << std::endl;
+	}
 }

@@ -1,7 +1,7 @@
 #include"eJP.h"
 #include<ctime>
 #include<iterator>
-
+#include "Handler.h"
 /*simple lottery sim*/
 using namespace std;
 
@@ -30,7 +30,7 @@ int main() {
 	//cijena odabranih kombinacija
 	cout << "Please pay " << n * list * 15 << ",00 kn" << endl;	
 	cin >> stanje; 
-	if(stanje< n * list * 15){ cout << "Not enough monney!" << endl; }
+	if(stanje < n * list * 15){ cout << "Not enough monney!" << endl; }
 	//ako je sve ok
 	else {
 		cout << ">>>>>>>>>>ROLLING<<<<<<<<<<<<<" << endl;
@@ -60,4 +60,5 @@ int main() {
 	//napraviti i novcanu vrijednost dobitaka i usporedbu ulog-gubitak
 	cout << "\nTotal winnings:" << endl;
 	ispis_mape(m);
+	
 }
