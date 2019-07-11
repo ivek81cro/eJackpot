@@ -1,7 +1,7 @@
 #include"eJP.h"
 #include<ctime>
 #include<iterator>
-#include "Handler.h"
+//#include "Handler.h"
 /*simple lottery sim*/
 using namespace std;
 
