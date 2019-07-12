@@ -21,7 +21,7 @@ void draw(std::vector<int>& c);
 void genList(std::vector<std::vector<int>>& z, int n);
 void manualList(std::vector<std::vector<int>>& z, int n);
 void total_winnings(const std::map<std::string, int> m);
-rez cmpV(const std::vector<int>& a, std::vector<int>& c);
 void winning(const rez& r, std::map<std::string, int>& m);
+rez cmpV(const std::vector<int>& a, std::vector<int>& c);
 
 #endif
