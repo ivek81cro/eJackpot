@@ -29,7 +29,7 @@ int main() {
 	//price of played tickets
 	cout << "Please pay " << n * list * 15 << ",00 kn" << endl;	
 	cin >> balance; 
-	if(balance< n * list * 15){ cout << "Not enough monney!" << endl; }
+	if (balance < n * list * 15) { cout << "Not enough monney!" << endl; return 0; }
 	//if balance enough
 	else {
 		cout << ">>>>>>>>>>ROLLING<<<<<<<<<<<<<" << endl;
