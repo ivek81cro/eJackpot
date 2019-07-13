@@ -83,8 +83,17 @@ void winning(const rez& r, std::map<std::string, int>& m) {
 	else if (r.a == 5 && r.b == 1) m["5+1"]++;//5+1
 	else if (r.a == 5 && r.b == 2) m["5+2"]++;//5+2
 }
+
 void total_winnings(const std::map<std::string,int> m) {
 	if (!m.size()) { std::cout << "Better luck next time" << std::endl; }
-	for (auto it = m.begin(); it != m.end(); ++it)
-		std::cout << it->first << ':' << it->second << std::endl;
+	else {
+		double base = 67.97;
+		double n = 0;
+		for (auto it = m.begin(); it != m.end(); ++it) {
+			std::cout << it->first << ':' << it->second << std::endl;
+			n += base * it->second;
+			base += base *= 0.35;
+		}
+		std::cout << "Value of winnings: " << n << " kn" << std::endl;
+	}
 }

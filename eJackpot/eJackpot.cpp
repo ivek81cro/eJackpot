@@ -59,4 +59,5 @@ int main() {
 	//make total winnings value and compare won->invested
 	cout << "\nTotal winnings:" << endl;
 	total_winnings(m);
+	cout << "Payed: " << balance << " kn" << endl;
 }
